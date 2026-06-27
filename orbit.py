@@ -20,7 +20,6 @@ earth = SpaceBody(x=400, y=400, vx=0, vy=0, radius=30, color=(0, 100, 255), mass
 moon = SpaceBody(x=600, y=400, vx=0, vy=-4.5, radius=18, color=(150, 150, 150))
 satellite = SpaceBody(x=700, y=400, vx=0, vy=3.7, radius=10, color=(200, 100, 0))
 
-
 # Moon history
 moon_history = []
 
@@ -42,18 +41,15 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-
     # Distance between the Earth and the Moon along the X and Y axes
     dx = earth.x - moon.x
     dy = earth.y - moon.y
     dx2 = earth.x - satellite.x
     dy2 = earth.y - satellite.y
 
-
     # Hypotenuse
     distance = math.sqrt(dx**2 + dy**2)
     distance2 = math.sqrt(dx2**2 + dy2**2)
-
 
     # Force of attraction
     f_total = earth.mass / (distance**2)
@@ -81,7 +77,6 @@ while running:
     speed_sat_y = satellite.y + (satellite.vy * dt)
     satellite.y = speed_sat_y
 
-
     # Tail
     current_x = int(moon.x)
     current_y = int(moon.y)
@@ -89,7 +84,6 @@ while running:
     current_x = int(satellite.x)
     current_y = int(satellite.y)
     pygame.draw.circle(trail_surface, (100, 50, 0), (int(satellite.x), int(satellite.y)), 2)
-
 
     # General screen color
     screen.fill((0, 0, 0))
